@@ -14,6 +14,14 @@
                 transform: rotate(360deg);
             }
         }
+        @keyframes pulsiranje {
+            from {
+                transform: scale(0,0);
+            }
+            to {
+                transform: scale(1,1);
+            }
+        }
         .kocka {
             width:600px;
             height:400px;
@@ -34,19 +42,47 @@
             animation-iteration-count: infinite;
             animation-timing-function: linear;
 
-
-
         }
-        .krug::before{
+        .krug::before {
             content:"";
-            width: 260px;
-            height:260px;
-            background: radial-gradient( black,#100f0f);
+            width: 310px;
+            height: 310px;
+            background: linear-gradient(#fb5dad , #55fb9f, #b97aff) ;
+            filter:blur(30px);
             border: 1px solid, black;
             border-radius:100%;
-            position:absolute;
-            left:20px;
-            top:20px;
+            position: absolute;
+            animation-name: animacija;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            left:0px;
+            top:0px;
+
+        }
+        .unutrasnjiKrug {
+            width:260px;
+            height:260px;
+            background-color:#000000;
+            border: 1px solid, black;
+            border-radius:100%;
+            position: absolute;
+            left: 170px;
+            top: 70px;
+        }
+        .unutrasnjiKrug::after {
+            content:"";
+            width:260px;
+            height:260px;
+            background-color:#1b0f3a;
+            border: 1px solid, black;
+            border-radius:100%;
+            position: absolute;
+            animation-name: pulsiranje;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+
         }
 
     </style>
@@ -55,6 +91,7 @@
 <body>
     <div class="kocka">
         <div class="krug"></div>
+        <div class="unutrasnjiKrug"></div>
     </div>
     
 </body>
